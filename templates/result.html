@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filtered Image</title>
+</head>
+<body>
+    <h1>Filtered Image</h1>
+    <table>
+        <tr>
+            <td><img src="{{ url_for('uploaded_file', filename=original_filename) }}"></td>
+            <td><button onclick="showFiltered()">Afficher l'image filtrée</button></td>
+
+        </tr>
+    </table>
+</body>
+
+<script>
+    function showFiltered() {
+        var img = document.createElement("img");
+        img.src = "{{ url_for('uploaded_file', filename=filtered_filename) }}";
+        var td = document.getElementsByTagName("td")[1];
+        td.innerHTML = "";
+        td.appendChild(img);
+    }
+    </script>
+    
+</html>
